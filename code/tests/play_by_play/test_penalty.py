@@ -8,7 +8,7 @@ from raw_data_parsers.play_by_play.penalty import split_penalties, get_penalty_t
 class TestPlayByPlay(unittest.TestCase):
 
     def __set_penalty_consts(self):
-        """Set penalties to be used by the penalty tests."""
+        """Set plays to be used by the penalty tests."""
         # Penalties
         self.penalties = (
             "Mercutio accepts duel (stabbed by Tybalt). Penalty on Romeo : Getting in the way (15 yards), 15 yards",

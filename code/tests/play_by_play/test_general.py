@@ -94,7 +94,6 @@ class TestPlayByPlay(unittest.TestCase):
         # running on data, but not when testing
         with open(os.devnull, 'w') as f:
             oldstdout = sys.stdout
-            f = open(os.devnull, 'w')
             sys.stdout = f
             # The squelched tests
             # Unknown kicker
@@ -118,7 +117,6 @@ class TestPlayByPlay(unittest.TestCase):
                     )
             # Return stdout
             sys.stdout = oldstdout
-            f.close()
 
 
 if __name__ == '__main__':
