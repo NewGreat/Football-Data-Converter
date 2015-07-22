@@ -67,16 +67,18 @@ def get_penalty_team(
         "home" or "away"
     """
     penalty_name = get_penalty_name(penalty_string).lower()
-    # First we try to assign the team based on offense or defense penalties
-    if "offensive" in penalty_string.lower() \
-    or penalty_name in offense_penalties:
-        return off_team
-    elif "defensive" in penalty_string.lower() \
-    or penalty_name in defense_penalties:
-        if off_team == "home":
-            return "away"
-        else:
-            return "home"
+    # First we try to assign the team based on offense or defense penalties,
+    # but only if we have correctly identified the team on offense
+    if off_team:
+        if "offensive" in penalty_string.lower() \
+        or penalty_name in offense_penalties:
+            return off_team
+        elif "defensive" in penalty_string.lower() \
+        or penalty_name in defense_penalties:
+            if off_team == "home":
+                return "away"
+            else:
+                return "home"
     # Otherwise we need to use the player to assign the team
     infractor = penalty_string.split("Penalty on")[1].split(":")[0].strip()
     # WARNING
