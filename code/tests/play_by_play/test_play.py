@@ -94,7 +94,6 @@ class TestPlayByPlay(unittest.TestCase):
         # running on data, but not when testing
         with open(os.devnull, 'w') as f:
             oldstdout = sys.stdout
-            f = open(os.devnull, 'w')
             sys.stdout = f
             self.assertEqual(
                     get_play_type("What are you even talking about?"),
@@ -102,7 +101,6 @@ class TestPlayByPlay(unittest.TestCase):
                     )
             # Return stdout
             sys.stdout = oldstdout
-            f.close()
 
     def test_get_score_type(self):
         # Successful
@@ -140,7 +138,6 @@ class TestPlayByPlay(unittest.TestCase):
         # running on data, but not when testing
         with open(os.devnull, 'w') as f:
             oldstdout = sys.stdout
-            f = open(os.devnull, 'w')
             sys.stdout = f
             self.assertEqual(
                     get_scoring_type("""Paul McCartney pass incomplete short
@@ -151,7 +148,6 @@ class TestPlayByPlay(unittest.TestCase):
                     )
             # Return stdout
             sys.stdout = oldstdout
-            f.close()
 
 
 if __name__ == '__main__':
