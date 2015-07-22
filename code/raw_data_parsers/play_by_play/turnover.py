@@ -87,7 +87,12 @@ def get_turnover_recoverer(turnover_string):
         if "recovered" not in turnover_string:
             return False
         r_split_string = "recovered by"
-        l_split_string = " at "
+        # If recovered on the field
+        if " at " in turnover_string:
+            l_split_string = " at "
+        # If recovered in the endzones
+        else:
+            l_split_string = " , "
     elif to_type == "interception":
         r_split_string = "intercepted by"
         l_split_string = " at "
